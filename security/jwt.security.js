@@ -2,6 +2,11 @@ const axios = require('axios');
 
 
 async function jwtVerify(req, res, next) {
+    if(!process.env.AUTH_SERVER_URL){
+        next();
+        return ;
+    }
+
     const authHeader = req.headers['authorization'];
     if (!authHeader) return res.status(403).json({ message: 'FORBIDDEN' });
 
