@@ -19,8 +19,11 @@ app.use(cors({
   credentials: true, // Needed if cookies or Authorization headers are used
 }));
 
-
-app.use('/images', jwtVerify, express.static(process.env.IMAGES_FOLDER_PATH));
+app.use('/images', jwtVerify, express.static(process.env.IMAGES_FOLDER_PATH,{
+  index: false,        // Don't serve index.html files by default
+  dotfiles: 'deny',    // Block hidden files (e.g., .env, .htaccess)
+  maxAge: '1d'         // Browser cache for 1 day
+}));
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
