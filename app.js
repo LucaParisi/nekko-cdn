@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors({
   origin: '*',
-  methods: '*',
+  methods: 'GET',
   credentials: true, // Needed if cookies or Authorization headers are used
 }));
 
