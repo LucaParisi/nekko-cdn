@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "esbuild app.js --bundle --platform=node --outfile=dist/server.js",
+    "build": "esbuild ./bin/www --bundle --platform=node --outfile=dist/server.js",
     "prod": "node dist/server.js"
   },
   "dependencies": {

@@ -4,8 +4,9 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const {jwtVerify} = require("./security/jwt.security");
 const cors = require('cors');
+const {resolve} = require("node:path");
 
-require('dotenv').config();
+require('dotenv').config({ path: resolve(__dirname, '.env') });
 
 const app = express();
 
